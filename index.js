@@ -189,8 +189,8 @@ app.post("/create-checkout-session", async (req, res) => {
               },
               quantity: item.qty,
           })),
-          success_url: `https://magical-dodol-d65998.netlify.app/success`,
-          cancel_url: `https://magical-dodol-d65998.netlify.app/cancel`,
+          success_url: `https://papaya-hummingbird-d2a3c2.netlify.app/success`,
+          cancel_url: `https://papaya-hummingbird-d2a3c2.netlify.app/cancel`,
       });
 
       res.status(200).json({ sessionId: session.id });
