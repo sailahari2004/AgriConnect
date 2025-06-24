@@ -187,8 +187,8 @@ app.post("/create-checkout-session", async (req, res) => {
               },
               quantity: item.qty,
           })),
-          success_url: `https://guileless-cactus-648d14.netlify.app/success`, 
-          cancel_url: `https://guileless-cactus-648d14.netlify.app/cancel`,
+          success_url: `https://resplendent-queijadas-daadf5.netlify.app/success`, 
+          cancel_url: `https://resplendent-queijadas-daadf5.netlify.app/cancel`,
       });
 
       res.status(200).json({ sessionId: session.id });// res.status(200).json(session.id); // Return the session ID
