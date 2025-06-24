@@ -6,9 +6,7 @@ dotenv.config();
 import Stripe from "stripe";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
 //import cartRoutes from "./routes/cartRoutes.js";
-import bcrypt from 'bcryptjs';
-
-
+import bcrypt from "bcrypt";
 
 import cartRoutes from "./routes/cartRoutes.js"; // Adjust the path as necessary
 
@@ -155,7 +153,7 @@ app.post("/uploadProduct",async(req,res)=>{
 })
 
 
-//await productModel.deleteOne({ name: "Plows" });
+await productModel.deleteOne({ name: "Plows" });
 // Delete a product by name
 //
 app.get("/product",async(_,res)=>{
@@ -189,17 +187,18 @@ app.post("/create-checkout-session", async (req, res) => {
               },
               quantity: item.qty,
           })),
-          success_url: `https://guileless-cactus-648d14.netlify.app/success`,
+          success_url: `https://guileless-cactus-648d14.netlify.app/success`, 
           cancel_url: `https://guileless-cactus-648d14.netlify.app/cancel`,
       });
 
-      res.status(200).json({ sessionId: session.id });
+      res.status(200).json({ sessionId: session.id });// res.status(200).json(session.id); // Return the session ID
       console.log("Created Stripe Session ID:", session.id);
   } catch (error) {
       console.error("Payment Error:", error);
       res.status(500).json({ message: "Payment processing error", error: error.message });
   }
 });
+
 // Add to Cart route
 app.post("/addToCart", async (req, res) => {
   try {
