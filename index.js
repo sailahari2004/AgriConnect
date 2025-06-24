@@ -10,6 +10,8 @@ import bcrypt from "bcryptjs";
 import orderRoutes from './routes/orderRoutes.js';
 import { updateDeliveredOrders } from './utils/orderStatusUpdate.js';
 import cron from 'node-cron';
+import cartModel from './models/cartModel.js'; // ✅ This will now work safely
+
 import bodyParser from 'body-parser'; // Import body-parser
 import { Order } from './models/orderModel.js'; // Ensure this path is correct
 // If productModel is defined directly in index.js:
@@ -301,14 +303,7 @@ app.post("/create-checkout-session", async (req, res) => {
 });
 
 // Cart routes
-// Assuming cartModel is defined or imported, e.g., from './models/cartModel.js'
-// Placeholder for cartModel if not already defined:
-const cartSchema = mongoose.Schema({
-    userEmail: { type: String, required: true },
-    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'product', required: true },
-    quantity: { type: Number, default: 1 }
-});
-const cartModel = mongoose.model("cart", cartSchema);
+
 
 app.post("/addToCart", async (req, res) => {
     try {
