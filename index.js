@@ -6,7 +6,7 @@ dotenv.config();
 import Stripe from "stripe";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
 //import cartRoutes from "./routes/cartRoutes.js";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 
 import cartRoutes from "./routes/cartRoutes.js"; // Adjust the path as necessary
 
